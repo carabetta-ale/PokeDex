@@ -1,0 +1,38 @@
+<div>
+  <div class="formSightings">
+    <div class="toggle">
+      <h4>New Sightings:</h4>
+      <i class="iconToggle iconToggleFilled" [ngClass]="{'iconToggle iconToggleVoid': formOpen}"
+        (click)="toggleForm()"></i>
+    </div>
+    <form [style.display]="formDisplay" (submit)="addSighting()">
+      <label for="image">Image</label>
+      <input type="file" (change)="handleFileInput($event)" name="image">
+      <label for="pokemonName">Pokemon name</label>
+      <input list="pokemons" name="pokemonName" [(ngModel)]="sighting.pokemonName">
+      <datalist id="pokemons">
+        <option *ngFor="let pokemon of pokemons">{{pokemon}} </option>
+      </datalist>
+      <label for="location">Location</label>
+      <input type="text" [(ngModel)]="sighting.location" name="location" disabled>
+      <label for="notes">Notes</label>
+      <textarea [(ngModel)]="sighting.notes" name="notes"></textarea>
+      <button type="submit">Catch</button>
+    </form>
+  </div>
+  <div class="sightings">
+    <h4>Sightings:</h4>
+    <div class="sightingsList">
+      <div class="sighting" *ngFor="let sighting of sightings">
+        <div class="sightingImage">
+          <img [src]="sighting.image" alt="image">
+        </div>
+        <div class="sightingInfo">
+          <p class="name">Name: {{sighting.pokemonName}}</p>
+          <p class="location">Location: {{sighting.location}}</p>
+          <p class="date">Date: {{sighting.date.toLocaleDateString('it-IT', {year: 'numeric', month: '2-digit',
+            day: '2-digit'})}}</p>
+          <p class="notes">Notes: {{sighting.notes}}</p>
+        </div>
+      </div>
+    </div>

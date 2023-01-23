@@ -1,0 +1,62 @@
+<div class="filter-container">
+  <div class="searchNameContainer">
+    <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchPokemon()" placeholder="Insert a pokemon name">
+    <button (click)="searchPokemon()">Search</button>
+    <span *ngIf="showClearSearchName" (click)="clearSearch()">&times;</span>
+  </div>
+
+  <div class="filterByParams">
+    <form (ngSubmit)="filterPokemonsByParams()">
+      <select class="selectType" [(ngModel)]="typeFilter" name="typeFilter">
+        <option value="" selected disabled>Type</option>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      <input [(ngModel)]="weightFilter" name="weightFilter" type="number" placeholder="Weight">
+      <input [(ngModel)]="heightFilter" name="heightFilter" type="number" placeholder="Height">
+      <button class="buttonFilter" type="submit">Search</button>
+      <span *ngIf="showClearForm" (click)="clearSearch()">&times;</span>
+    </form>
+  </div>
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<ng-container *ngIf="loading">
+  <div class="skeleton-loader">
+    <!--TODO:Add a real skeleton loader-->
+    <p>Loading...</p>
+  </div>
+</ng-container>
+<div class="card-wrapper">
+  <div class="card-container" *ngIf="!loading">
+    <div *ngFor="let pokemon of pokemons">
+      <div class=" card">
+        <img
+          [src]="pokemon.sprites.other['official-artwork'].front_default ? pokemon.sprites.other['official-artwork'].front_default : 'assets/icons8-psyduck-100.png'"
+          class="card-img-top" alt="{{ pokemon.name }}">
+        <div class="card-body">
+          <h4 *ngIf="pokemon.name" class="card-title">#{{ pokemon.id }} {{ pokemon.name.charAt(0).toUpperCase() +
+            pokemon.name.slice(1) }}
+          </h4>
+          <p class="card-text">Height: {{ pokemon.height/10 }} m</p>
+          <p class="card-text">Weight: {{ pokemon.weight/10 }} kg</p>
+          <div *ngIf="pokemon.types" class="card-text">
+            <div *ngFor="let type of pokemon.types" class="type-tag"
+              [ngStyle]="{'background-color': getTypeColor(type.type.name)}">
+              {{type.type.name}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<img src="assets/arrow-left.png" class="buttonPreviews arrow-left arrowResized" (click)="previousPage()"
+  *ngIf="!searchCompleted" [ngClass]="{'disabled': currentPage === 1}">
+
+<img src="assets/arrow-right.png" class="buttonNext arrow-right arrowResized" (click)="nextPage()"
+  *ngIf="!searchCompleted" [ngClass]="{'disabled': currentPage === lastPage}">

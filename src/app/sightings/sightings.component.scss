@@ -1,0 +1,139 @@
+form {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.toggle {
+  display: flex;
+  justify-content:center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+i.iconToggleFilled {
+  cursor: pointer;
+  background-image: url('/assets/icon-pokedex-filled.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+i.iconToggleVoid {
+  cursor: pointer;
+  background-image: url('/assets/icon-pokedex-void.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+
+label {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+button[type="submit"] {
+  background-color: #23b7bc;
+  color: white;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color:#138a8e;
+}
+
+.sightingsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+.sightings {
+    padding: 20px;
+}
+
+.sightings h4 {
+    text-align: center;
+}
+
+.sighting {
+  width: calc(20% - 20px);
+  margin: 10px;
+  background-color: #f1f1f1;
+  box-shadow: 0px 0px 10px #ccc;
+}
+
+
+.sightingImage {
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.sightingImage img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.sightingInfo {
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.sightingInfo p {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+
+@media (max-width: 992px) {
+  .sighting {
+    width: calc(50% - 20px);
+  }
+  .sightingImage img {
+    max-width: 100%;
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sighting {
+    width: 100%;
+  }
+  .sightingImage img {
+    max-width: 100%;
+    max-height: 150px;
+  }
+}
+
+
