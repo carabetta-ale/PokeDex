@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Pokemon } from "../models/pokemon.interface";
 
 @Injectable({
   providedIn: "root",
@@ -28,7 +29,7 @@ export class PokemonFilterService {
   }
 
   filterPokemons(
-    pokemons: any[],
+    pokemons: Pokemon[],
     typeFilter?: string,
     weightFilter?: number,
     heightFilter?: number

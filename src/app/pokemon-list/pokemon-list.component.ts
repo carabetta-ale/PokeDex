@@ -2,6 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { PokemonService } from '../services/pokemon.service';
 import { PokemonFilterService } from '../services/pokemon-filter.service';
+import { Pokemon } from '../models/pokemon.interface';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,8 +10,8 @@ import { PokemonFilterService } from '../services/pokemon-filter.service';
   styleUrls: ['./pokemon-list.component.scss'],
 })
 export class PokemonListComponent implements OnInit {
-  pokemons: any[];
-  pokemon: any;
+  pokemons: Pokemon[];
+  pokemon: Pokemon;
   searchTerm: string;
   currentPage = 1;
   lastPage = 120;

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { of, forkJoin } from "rxjs";
 import { map, catchError, switchMap } from "rxjs/operators";
+import { Pokemon } from "../models/pokemon.interface";
 
 @Injectable({
   providedIn: "root",
@@ -73,7 +74,7 @@ export class PokemonService {
     );
   }
 
-  searchPokemon(term: string) {
+  searchPokemon(term: Pokemon) {
     return this.http.get(`https://pokeapi.co/api/v2/pokemon/${term}`).pipe(
       map((response: any) => {
         return response;

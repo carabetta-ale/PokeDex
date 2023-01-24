@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SightingsService } from '../services/db.service';
 import { PokemonService } from '../services/pokemon.service';
+import { Pokemon } from '../models/pokemon.interface';
 
 @Component({
   selector: 'app-sightings',
@@ -15,7 +16,7 @@ export class SightingsComponent {
 
   sighting: any = {};
   sightings: any[] = [];
-  pokemons: any[] = [];
+  pokemons: Pokemon[] = [];
   searchTerm: string = '';
   formOpen: boolean = false;
   formDisplay: string = 'none';
