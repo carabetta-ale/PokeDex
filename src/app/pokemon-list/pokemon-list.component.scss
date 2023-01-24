@@ -23,6 +23,10 @@
   justify-content: center;
 }
 
+.clearSearch {
+  font-size: 30px;
+}
+
 
 input[type=number] {
   width: 58px;
@@ -69,6 +73,7 @@ form {
   padding: 5px 10px;
   border-radius: 5px;
   margin-right: 10px;
+  color:beige;
 }
 
 .arrow-left {
@@ -138,6 +143,16 @@ button:hover {
   background-color: #138a8e;
 }
 
+/* Media query per schermi grandi */
+@media (min-width: 1450px) {
+  .card {
+      width: 250px;
+      height: 350px;
+  }
+  .card-img-top {
+      height: 200px;
+  }
+}
 
 
 

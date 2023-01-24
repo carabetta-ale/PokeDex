@@ -2,7 +2,7 @@
   <div class="searchNameContainer">
     <input type="text" [(ngModel)]="searchTerm" (keyup.enter)="searchPokemon()" placeholder="Insert a pokemon name">
     <button (click)="searchPokemon()">Search</button>
-    <span *ngIf="showClearSearchName" (click)="clearSearch()">&times;</span>
+    <span *ngIf="showClearSearchName" (click)="clearSearch()" class="clearSearch">&times;</span>
   </div>
 
   <div class="filterByParams">
@@ -14,7 +14,7 @@
       <input [(ngModel)]="weightFilter" name="weightFilter" type="number" placeholder="Weight">
       <input [(ngModel)]="heightFilter" name="heightFilter" type="number" placeholder="Height">
       <button class="buttonFilter" type="submit">Search</button>
-      <span *ngIf="showClearForm" (click)="clearSearch()">&times;</span>
+      <span *ngIf="showClearForm" (click)="clearSearch()" class="clearSearch">&times;</span>
     </form>
   </div>
 </div>
@@ -31,7 +31,7 @@
 <div class="card-wrapper">
   <div class="card-container" *ngIf="!loading">
     <div *ngFor="let pokemon of pokemons">
-      <div class=" card">
+      <div class="card">
         <img
           [src]="pokemon.sprites.other['official-artwork'].front_default ? pokemon.sprites.other['official-artwork'].front_default : 'assets/icons8-psyduck-100.png'"
           class="card-img-top" alt="{{ pokemon.name }}">
