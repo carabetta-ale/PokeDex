@@ -4,7 +4,7 @@ This project is a Pokedex application built with Angular. It features two views:
 
 Pokemon List: This view displays a list of all Pokemon, with the ability to search for a specific Pokemon by name, or filter the list by type, height, and weight. The Pokemon are also displayed with pagination.
 
-![Pokemon List View](https://github.com/carabetta-ale/PokeDex/src/assets/pokemon-list-view.png)
+![Pokemon List View](https://github.com/carabetta-ale/PokeDex/blob/master/src/assets/pokemon-list-view.png)
 
 Sightings: This view allows users to register a Pokemon sighting and stores it in IndexDB. It also displays a list of all registered sightings.
 
